@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include "State.h"
+#include "Neighbour.h"
 
 using namespace std;
 

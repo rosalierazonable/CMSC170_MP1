@@ -18,7 +18,7 @@ class Neighbour {
 
 public:
     Neighbour() {
-      buildMap();
+      this->buildMap();
     }
 
     void buildMap();
