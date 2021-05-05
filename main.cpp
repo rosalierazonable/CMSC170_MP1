@@ -9,14 +9,21 @@
 #include "State.h"
 using namespace std;
 
-int main() {
-    State s;
-//    State s1(3, {0, 1, 2, 3, 5, 6, 4, 8, 7});
+bool isGoalState(State& s, State& goalState);
 
+int main() {
+    State goalState(3, {0, 1, 2, 3, 4, 5, 6, 7, 8});
+    State s;
+//    State s(3, {0, 1, 2, 3, 4, 5, 6, 7, 8});
 
     s.displayStateConfig();
     s.createBoard();
     cout << s.locateEmptyTile() << endl;
-    s.swapTiles(7).createBoard();
+//    s.swapTiles(7).createBoard();
+    cout << isGoalState(s, goalState);
     return 0;
+}
+
+bool isGoalState(State& s, State& goalState) {
+    return goalState.getState() == s.getState();
 }
