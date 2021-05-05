@@ -2,7 +2,7 @@
  *  CMSC170: INTRODUCTION TO ARTIFICIAL INTELLIGENCE
  *  AI SEARCH PROBLEM - 8 PUZZLE
  *  USING A* ALGORITHM
- *  Created by: Rosalie Razonable
+ *  - Rosalie Razonable
  */
 
 #include <iostream>
@@ -15,6 +15,7 @@ int main() {
 
 
     s.displayStateConfig();
-
+    s.createBoard();
+    cout << s.locateEmptyTile();
     return 0;
 }

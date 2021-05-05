@@ -15,22 +15,36 @@ class State {
     vector<int> state; //List of integers representing the state configuration
 
 public:
-    State() { //default constructor
-        this->dimension = 3; // 3x3 dimension
-        this->state.assign({7, 2, 4, 5, 0, 6, 8, 3, 1}); //default initial state of the puzzle
+
+    //default constructor
+    State() {
+        this->setDimension(3); // 3x3 dimension by default
+        this->setState({7, 2, 4, 5, 0, 6, 8, 3, 1}); //default initial state configuration
     }
 
     //overloaded constructor for instances where the size and the initial state are provided
     State (unsigned int dimension, const vector<int>& stateArray) {
-        this->dimension = dimension;
-        this->state = stateArray;
-//        for (auto i: stateArray) {
-//            this->state.push_back(i);
-//        }
+        this->setDimension(dimension);
+        this->setState(stateArray);
     }
 
+    //copy constructor
+    State (State& otherState) {
+        this->setState(otherState.state);
+        this->setDimension(otherState.dimension);
+    }
+
+    // Accessor Methods
     vector<int> getState();
-    void displayStateConfig();
+
+    // Mutator Methods
+    void setDimension(unsigned int dmension);
+    void setState(const vector<int>& s8);
+
+    // Helper Methods
+    void displayStateConfig(); //display the state list configuration
+    void createBoard(); //create a board and display it
+    unsigned int locateEmptyTile(); //find the empty tile [0]
 };
 
 
