@@ -17,9 +17,11 @@ using namespace std;
 bool isGoalState(State& s, State& goalState);
 
 int main() {
+    Neighbour neighbour;
     State goalState(3, {0, 1, 2, 3, 4, 5, 6, 7, 8}); //default goal state
+
     State s;
-    State s1(3, {0, 1, 2, 3, 4, 5, 6, 7, 8});
+//    State s1(3, {0, 1, 2, 3, 4, 5, 6, 7, 8});
 
 //    s.displayStateConfig();
 //    s.createBoard();
@@ -33,7 +35,7 @@ int main() {
     root->child->sibling->sibling = new Node(s.swapTiles(5));
     root->child->sibling->sibling->sibling = new Node(s.swapTiles(7));
 
-    Node::printKthChild(root, s, 1);
+    Node::printKthChild(root, s, 4);
 
     return 0;
 }
@@ -42,3 +44,11 @@ int main() {
 bool isGoalState(State& s, State& goalState) {
     return goalState.getState() == s.getState();
 }
+
+/* REFERENCES:
+ *
+ * https://www.geeksforgeeks.org/left-child-right-sibling-representation-tree/
+ * https://www.geeksforgeeks.org/generic-treesn-array-trees/
+ * https://www.geeksforgeeks.org/largest-element-in-an-n-ary-tree/
+ *
+ */

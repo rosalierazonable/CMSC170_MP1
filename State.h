@@ -11,7 +11,7 @@
 using namespace std;
 
 class State {
-    unsigned int dimension; //State dimension (nxn)
+    unsigned int dimension{}; //State dimension (nxn)
     vector<int> state; //List of integers representing the state configuration
 
 public:
