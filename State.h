@@ -46,7 +46,7 @@ public:
     void createBoard(); //create a board and display it
     unsigned int locateEmptyTile(); //find the empty tile [0]
     State swapTiles(int idxToSwap); //swaps empty location to the index provided and returns a state
-
+    bool isEqual(State& state);
 };
 
 

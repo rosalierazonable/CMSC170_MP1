@@ -10,6 +10,7 @@
 #include <iostream>
 #include "State.h"
 #include "Neighbour.h"
+#include "Node.h"
 
 using namespace std;
 
@@ -18,13 +19,21 @@ bool isGoalState(State& s, State& goalState);
 int main() {
     State goalState(3, {0, 1, 2, 3, 4, 5, 6, 7, 8}); //default goal state
     State s;
-//    State s(3, {0, 1, 2, 3, 4, 5, 6, 7, 8});
+    State s1(3, {0, 1, 2, 3, 4, 5, 6, 7, 8});
 
 //    s.displayStateConfig();
 //    s.createBoard();
 //    cout << s.locateEmptyTile() << endl;
 //    s.swapTiles(7).createBoard();
 //    cout << isGoalState(s, goalState) << endl;
+
+    Node *root = new Node(s);
+    root->child = new Node(s.swapTiles(1));
+    root->child->sibling = new Node(s.swapTiles(3));
+    root->child->sibling->sibling = new Node(s.swapTiles(5));
+    root->child->sibling->sibling->sibling = new Node(s.swapTiles(7));
+
+    Node::printKthChild(root, s, 1);
 
     return 0;
 }

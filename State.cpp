@@ -76,3 +76,9 @@ State State::swapTiles(int idxToSwap) {
     return s;
 }
 
+bool State::isEqual(State &s8) {
+    if(this->getState() == s8.getState())
+        return true;
+    return false;
+}
+
