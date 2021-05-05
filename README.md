@@ -14,5 +14,5 @@ The Heurestic value used in this problem is the total of the Manhattan Distance 
 
 - Vector List
 - Map 
-- Tree 
+- N-ary Tree 
 - Priority Queue
