@@ -58,3 +58,21 @@ unsigned int State::locateEmptyTile() {
 
     return -1; //no empty tile, bizarre
 }
+
+State State::swapTiles(int idxToSwap) {
+    unsigned int emptyIdx = this->locateEmptyTile();
+    int newValue;
+
+    vector<int> stateConfig;
+
+    stateConfig = this->getState();
+
+    newValue = stateConfig.at(idxToSwap);
+    stateConfig.at(emptyIdx) = newValue;
+    stateConfig.at(idxToSwap) = 0;
+
+    State s(this->dimension, stateConfig);
+
+    return s;
+}
+

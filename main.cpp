@@ -16,6 +16,7 @@ int main() {
 
     s.displayStateConfig();
     s.createBoard();
-    cout << s.locateEmptyTile();
+    cout << s.locateEmptyTile() << endl;
+    s.swapTiles(7).createBoard();
     return 0;
 }
