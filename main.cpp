@@ -38,8 +38,6 @@ int main() {
     Node::printKthChild(root, s, 3);
     root->child->sibling->sibling->sibling = new Node(s.swapTiles(7));
     Node::printKthChild(root, s, 4);
-    root->child->sibling->sibling->sibling->sibling = new Node(s.swapTiles(6));
-    Node::printKthChild(root, s, 5);
 
     return 0;
 }
