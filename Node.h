@@ -20,6 +20,7 @@ public:
     Node *child; // left child
     Node *sibling; // right sibling
     unsigned int heurestic{};
+    unsigned int level{};
 
 public:
 
