@@ -20,7 +20,7 @@ public:
     Node *child; // left child
     Node *sibling; // right sibling
     unsigned int heurestic{};
-    unsigned int level{};
+    unsigned int level;
 
 public:
 
@@ -30,6 +30,7 @@ public:
         this->state = s;
         this->child = nullptr;
         this->sibling = nullptr;
+        this->level = 0;
     };
 
     // Overloaded Constructor
@@ -37,10 +38,23 @@ public:
         this->state = s8;
         this->child = nullptr;
         this->sibling = nullptr;
+        this->level = 0;
+    }
+
+    // Copy Constructor
+    Node(Node& n) {
+        this->state = n.state;
+        this->level = n.level;
+        this->heurestic = n.heurestic;
+        this->sibling = n.sibling;
+        this->child = n.child;
     }
 
     // Helper Functions
     static void printKthChild(Node* root, State& state1, unsigned int k);
+    State getState(){
+        return this->state;
+    }
 };
 
 
