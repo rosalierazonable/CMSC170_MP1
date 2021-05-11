@@ -14,15 +14,15 @@ using namespace std;
 
 class Neighbour {
     typedef map<unsigned int, vector<int>> Map;
-    Map neighbourMap;
+    static Map neighbourMap;
 
 public:
     Neighbour() {
-      this->buildMap();
+      Neighbour::buildMap();
     }
 
-    void buildMap();
-    vector<int> getNeighbours(unsigned int idxEmpty);
+    static void buildMap();
+    static vector<int> getNeighbours(unsigned int idxEmpty);
     void displayNeighbours(unsigned int idx);
 
 };
