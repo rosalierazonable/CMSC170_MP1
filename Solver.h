@@ -5,9 +5,14 @@
 #ifndef MP1_SOLVER_H
 #define MP1_SOLVER_H
 
+#include <vector>
+#include <iostream>
+#include "Node.h"
+#include "Neighbour.h"
 
 class Solver {
-
+public:
+    static vector<Node> actions(Node n);
 };
 
 
