@@ -4,6 +4,8 @@
 
 #include "Neighbour.h"
 
+//map<unsigned int, vector<int>> Neighbour::neighbourMap = {};
+
 void Neighbour::buildMap() {
     neighbourMap.insert(make_pair(0, vector<int>{1,3}));
     neighbourMap.insert(make_pair(1, vector<int>{0,2,4}));
@@ -27,5 +29,6 @@ vector<int> Neighbour::getNeighbours(unsigned int idxEmpty) {
 void Neighbour::displayNeighbours(unsigned int idx) {
     for(int neighbour: this->getNeighbours(idx))
         cout << neighbour << " ";
+    cout <<  endl;
 }
 
