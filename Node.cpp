@@ -66,11 +66,17 @@ unsigned int Node::calculateHammingCost(State goalState) {
     return hamming;
 }
 
-void Node::setHeuresticValue(unsigned int manhattan, unsigned int hamming) {
-    this->heurestic = manhattan + hamming;
+//void Node::setHeuresticValue(unsigned int manhattan, unsigned int hamming) {
+void Node::setPathCostValue(State goalState) {
+    unsigned int manhattan, hamming;
+
+    manhattan = this->calculateManhattanCost(goalState);
+    hamming = this->calculateHammingCost(goalState);
+
+    this->pathCost = manhattan + hamming + this->level;
 }
 
-unsigned int Node::getHeuresticValue() const {
-    return this->heurestic;
+unsigned int Node::getPathCostValue() const {
+    return this->pathCost;
 }
 
