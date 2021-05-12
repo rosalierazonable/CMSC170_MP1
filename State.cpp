@@ -59,7 +59,7 @@ unsigned int State::locateEmptyTile() {
     return -1; //no empty tile, bizarre
 }
 
-State& State::swapTiles(int idxToSwap) {
+State State::swapTiles(int idxToSwap) {
     unsigned int emptyIdx = this->locateEmptyTile();
     int newValue;
 
