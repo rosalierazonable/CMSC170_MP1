@@ -53,7 +53,7 @@ int main() {
 //    cout << "Manhattan: " << root->calculateManhattanCost(root->state, goalState) << endl;
     cout  << "Manhattan: " << root->calculateManhattanCost(goalState) << endl;
     root->setPathCostValue(goalState);
-    cout << "PathCost: " << root->getHeuresticValue() << endl;
+    cout << "PathCost: " << root->getPathCostValue() << endl;
 
     root->child->level = 1;
     Node::printKthChild(root, s, 1);
