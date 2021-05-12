@@ -34,12 +34,14 @@ void Node::printKthChild(Node *root, State &state1, unsigned int k) {
     cout << "State does not exist" << endl;
 }
 
-unsigned int Node::calculateManhattanCost(State curState, State goalState) {
+//unsigned int Node::calculateManhattanCost(State curState, State goalState) {
+unsigned int Node::calculateManhattanCost(State goalState) {
     int manhattanCost = 0;
     Board b;
     vector<vector<int>> curStateCoord, goalStateCoord;
 
-    curStateCoord = Board::getBoardCoordinatesByValue(curState);
+//    curStateCoord = Board::getBoardCoordinatesByValue(curState);
+    curStateCoord = Board::getBoardCoordinatesByValue(this->state);
     goalStateCoord = Board::getBoardCoordinatesByValue(goalState);
 
     unsigned int size = curStateCoord.size();

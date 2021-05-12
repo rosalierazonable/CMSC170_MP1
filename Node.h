@@ -56,7 +56,8 @@ public:
         return this->state;
     }
 
-    unsigned int calculateManhattanCost(State currState, State goalState);
+//    unsigned int calculateManhattanCost(State currState, State goalState);
+    unsigned int calculateManhattanCost(State goalState);
     unsigned int calculateHammingCost(State goalState);
     void setHeuresticValue(unsigned int manhattan, unsigned int hamming);
     unsigned int getHeuresticValue() const;
