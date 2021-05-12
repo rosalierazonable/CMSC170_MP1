@@ -39,8 +39,8 @@ unsigned int Node::calculateManhattanCost(State curState, State goalState) {
     Board b;
     vector<vector<int>> curStateCoord, goalStateCoord;
 
-    curStateCoord = b.getBoardCoordinatesByValue(curState);
-    goalStateCoord = b.getBoardCoordinatesByValue(goalState);
+    curStateCoord = Board::getBoardCoordinatesByValue(curState);
+    goalStateCoord = Board::getBoardCoordinatesByValue(goalState);
 
     unsigned int size = curStateCoord.size();
 
