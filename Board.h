@@ -23,9 +23,9 @@ public:
     }
 
     void buildMap();
-    vector<int> getBoardCoordinatesByIdx(unsigned int idx); // get coordinate of the idx
-    vector<vector<int>> getBoardCoordinatesByValue(State state); // returns the coordinate of the value passed
-    map<unsigned int, vector<int>> getBoardCoordinatesByStateConfig(State state);
+    static vector<int> getBoardCoordinatesByIdx(unsigned int idx); // get coordinate of the idx
+    static vector<vector<int>> getBoardCoordinatesByValue(State state); // returns the coordinate of the value passed
+    static map<unsigned int, vector<int>> getBoardCoordinatesByStateConfig(State state);
     void displayCoordinates(unsigned int idx);
     void displayConfigCoordinates(State state);
 };

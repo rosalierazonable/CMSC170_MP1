@@ -31,9 +31,9 @@ vector<vector<int>> Board::getBoardCoordinatesByValue(State state) {
     typedef map<unsigned int, vector<int>> BoardMap;
     BoardMap boardMap;
 
-    boardMap = this->getBoardCoordinatesByStateConfig(state);
+    boardMap = getBoardCoordinatesByStateConfig(state);
 
-    for(int i = 0; i < state.getState().size(); i++) {
+    for(int i = 1; i < 9; i++) {
         Map::const_iterator itr(boardMap.find(i));
         if(itr!=boardMap.end()) {
             coordinates.push_back(itr->second);
@@ -47,7 +47,9 @@ map<unsigned int, vector<int>> Board::getBoardCoordinatesByStateConfig(State sta
     BoardMap idxMap;
 
     for(int i = 0; i < state.getState().size(); i++) {
-        idxMap.insert(make_pair(state.getState().at(i) ,this->getBoardCoordinatesByIdx(i)));
+        if(state.getState().at(i) == 0) continue;
+
+        idxMap.insert(make_pair(state.getState().at(i) ,getBoardCoordinatesByIdx(i)));
     }
     return idxMap;
 }
@@ -70,7 +72,7 @@ void Board::displayCoordinates(unsigned int idx) {
 
 void Board::displayConfigCoordinates(State state) {
     vector<vector<int>> idxMap;
-    idxMap = this->getBoardCoordinatesByValue(state);
+    idxMap = getBoardCoordinatesByValue(state);
 
     int ctr, ctr1;
     ctr = 1;
