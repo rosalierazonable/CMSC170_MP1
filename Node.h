@@ -13,17 +13,17 @@
 #define MP1_NODE_H
 
 #include "State.h"
+#include "Board.h"
 
 class Node {
 public:
     State state;
     Node *child; // left child
     Node *sibling; // right sibling
-    unsigned int heurestic{};
-    unsigned int level;
+    unsigned int heurestic{}; // manhattan + hamming + level
+    unsigned int level; // level from root
 
 public:
-
     // Default Constructor
     Node() {
         State s;
@@ -55,6 +55,11 @@ public:
     State getState(){
         return this->state;
     }
+
+    static unsigned int calculateManhattanCost(State currState, State goalState);
+    unsigned int calculateHammingCost(State goalState);
+    void setHeuresticValue(unsigned int manhattan, unsigned int hamming);
+    unsigned int getHeuresticValue() const;
 };
 
 

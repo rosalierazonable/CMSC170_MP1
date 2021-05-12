@@ -34,3 +34,45 @@ void Node::printKthChild(Node *root, State &state1, unsigned int k) {
     cout << "State does not exist" << endl;
 }
 
+unsigned int Node::calculateManhattanCost(State curState, State goalState) {
+    int manhattanCost = 0;
+    Board b;
+    vector<vector<int>> curStateCoord, goalStateCoord;
+
+    curStateCoord = b.getBoardCoordinatesByValue(curState);
+    goalStateCoord = b.getBoardCoordinatesByValue(goalState);
+
+    unsigned int size = curStateCoord.size();
+
+    for(unsigned int i = 0; i < size; i++) {
+
+
+        cout << "i: " << i << " " << abs(curStateCoord.at(i).at(0) - goalStateCoord.at(i).at(0)) <<  "+" << abs(curStateCoord.at(i).at(1) - goalStateCoord.at(i).at(1)) << endl;
+
+        manhattanCost += (abs(curStateCoord.at(i).at(0) - goalStateCoord.at(i).at(0)) +
+                          abs(curStateCoord.at(i).at(1) - goalStateCoord.at(i).at(1)));
+    }
+
+    return manhattanCost;
+}
+
+unsigned int Node::calculateHammingCost(State goalState) {
+    unsigned int hamming = 0;
+    for(int i = 0; i < goalState.getState().size(); i++) {
+
+        if(goalState.getState().at(i) == 0)
+            continue;
+        else if(this->state.getState().at(i) != goalState.getState().at(i))
+            hamming++;
+    }
+    return hamming;
+}
+
+void Node::setHeuresticValue(unsigned int manhattan, unsigned int hamming) {
+    this->heurestic = manhattan + hamming;
+}
+
+unsigned int Node::getHeuresticValue() const {
+    return this->heurestic;
+}
+
