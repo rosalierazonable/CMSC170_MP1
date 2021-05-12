@@ -12,7 +12,7 @@
 
 class Solver {
 public:
-    static vector<Node> actions(Node n);
+//    static vector<Node> actions(Node n);
 };
 
 
