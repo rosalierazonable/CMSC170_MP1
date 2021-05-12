@@ -45,10 +45,6 @@ unsigned int Node::calculateManhattanCost(State curState, State goalState) {
     unsigned int size = curStateCoord.size();
 
     for(unsigned int i = 0; i < size; i++) {
-
-
-        cout << "i: " << i << " " << abs(curStateCoord.at(i).at(0) - goalStateCoord.at(i).at(0)) <<  "+" << abs(curStateCoord.at(i).at(1) - goalStateCoord.at(i).at(1)) << endl;
-
         manhattanCost += (abs(curStateCoord.at(i).at(0) - goalStateCoord.at(i).at(0)) +
                           abs(curStateCoord.at(i).at(1) - goalStateCoord.at(i).at(1)));
     }
