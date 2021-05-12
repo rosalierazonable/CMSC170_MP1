@@ -50,7 +50,11 @@ int main() {
     root->level = 0;
     root->child = new Node(s.swapTiles(1));
     cout << "Hamming: " << root->calculateHammingCost(goalState) << endl;
-    cout  << "Manhattan: " << Node::calculateManhattanCost(root->state,goalState) << endl;
+//    cout << "Manhattan: " << root->calculateManhattanCost(root->state, goalState) << endl;
+    cout  << "Manhattan: " << root->calculateManhattanCost(goalState) << endl;
+    root->setPathCostValue(goalState);
+    cout << "PathCost: " << root->getHeuresticValue() << endl;
+
     root->child->level = 1;
     Node::printKthChild(root, s, 1);
     root->child->sibling = new Node(s.swapTiles(3));
