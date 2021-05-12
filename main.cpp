@@ -49,7 +49,8 @@ int main() {
     Node *root = new Node(s);
     root->level = 0;
     root->child = new Node(s.swapTiles(1));
-//    cout  << "Manhattan: " << Node::calculateManhattanCost(root->state,goalState) << endl;
+    cout << "Hamming: " << root->calculateHammingCost(goalState) << endl;
+    cout  << "Manhattan: " << Node::calculateManhattanCost(root->state,goalState) << endl;
     root->child->level = 1;
     Node::printKthChild(root, s, 1);
     root->child->sibling = new Node(s.swapTiles(3));
