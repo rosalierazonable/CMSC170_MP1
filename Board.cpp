@@ -18,12 +18,38 @@ void Board::buildMap() {
     BoardIdxMap.insert(make_pair(8, vector<int>{2,2}));
 }
 
-vector<int> Board::getBoardCoordinates(unsigned int idx) {
+vector<int> Board::getBoardCoordinatesByIdx(unsigned int idx) {
     Map::const_iterator itr(BoardIdxMap.find(idx));
     if(itr!=BoardIdxMap.end()) {
         return itr->second;
     }
     return vector<int>();
+}
+
+vector<vector<int>> Board::getBoardCoordinatesByValue(State state) {
+    vector<vector<int>> coordinates;
+    typedef map<unsigned int, vector<int>> BoardMap;
+    BoardMap boardMap;
+
+    boardMap = this->getBoardCoordinatesByStateConfig(state);
+
+    for(int i = 0; i < state.getState().size(); i++) {
+        Map::const_iterator itr(boardMap.find(i));
+        if(itr!=boardMap.end()) {
+            coordinates.push_back(itr->second);
+        }
+    }
+    return coordinates;
+}
+
+map<unsigned int, vector<int>> Board::getBoardCoordinatesByStateConfig(State state) {
+    typedef map<unsigned int, vector<int>> BoardMap;
+    BoardMap idxMap;
+
+    for(int i = 0; i < state.getState().size(); i++) {
+        idxMap.insert(make_pair(state.getState().at(i) ,this->getBoardCoordinatesByIdx(i)));
+    }
+    return idxMap;
 }
 
 void Board::displayCoordinates(unsigned int idx) {
@@ -33,7 +59,7 @@ void Board::displayCoordinates(unsigned int idx) {
         if(i == 0)
             cout << "( ";
 
-        cout << this->getBoardCoordinates(idx).at(i);
+        cout << this->getBoardCoordinatesByIdx(idx).at(i);
 
         if(i != 1)
             cout << ",";
@@ -41,3 +67,30 @@ void Board::displayCoordinates(unsigned int idx) {
             cout << " )" << endl;
     }
 }
+
+void Board::displayConfigCoordinates(State state) {
+    vector<vector<int>> idxMap;
+    idxMap = this->getBoardCoordinatesByValue(state);
+
+    int ctr, ctr1;
+    ctr = 1;
+    for(const auto& val: idxMap) {
+        ctr1 = 1;
+        cout << "( ";
+       for(auto value: val) {
+           cout << value;
+           if(ctr1 == 1)
+               cout << ",";
+           ctr1++;
+       }
+       cout << " ) | ";
+       if(ctr == 3) {
+           cout << endl;
+           ctr = 0;
+       }
+       ctr++;
+    }
+    cout << endl;
+}
+
+

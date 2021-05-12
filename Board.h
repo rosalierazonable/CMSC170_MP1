@@ -9,6 +9,7 @@
 #include <map>
 #include <vector>
 #include <iterator>
+#include "State.h"
 
 using namespace std;
 
@@ -22,9 +23,13 @@ public:
     }
 
     void buildMap();
-    vector<int> getBoardCoordinates(unsigned int idx);
+    vector<int> getBoardCoordinatesByIdx(unsigned int idx); // get coordinate of the idx
+    vector<vector<int>> getBoardCoordinatesByValue(State state); // returns the coordinate of the value passed
+    map<unsigned int, vector<int>> getBoardCoordinatesByStateConfig(State state);
     void displayCoordinates(unsigned int idx);
+    void displayConfigCoordinates(State state);
 };
+
 
 
 #endif //MP1_BOARD_H
