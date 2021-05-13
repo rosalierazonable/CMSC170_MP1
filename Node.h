@@ -52,16 +52,24 @@ public:
 
     // Helper Functions
     static void printKthChild(Node* root, State& state1, unsigned int k);
+    unsigned int calculateManhattanCost(State goalState);
+    unsigned int calculateHammingCost(State goalState);
+
+    // Mutator Methods
+    void setPathCostValue(State goalState);
+    void setSibling(Node *sib);
+    void setChild(Node *c);
+    void setLevel(unsigned int lvl);
+
+    // Accessor Methods
     State getState(){
         return this->state;
     }
-
-//    unsigned int calculateManhattanCost(State currState, State goalState);
-    unsigned int calculateManhattanCost(State goalState);
-    unsigned int calculateHammingCost(State goalState);
-//    void setHeuresticValue(unsigned int manhattan, unsigned int hamming);
-    void setPathCostValue(State goalState);
     unsigned int getPathCostValue() const;
+    void getSibling();
+    void getChild();
+    void getLevel();
+
 };
 
 

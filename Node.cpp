@@ -34,13 +34,11 @@ void Node::printKthChild(Node *root, State &state1, unsigned int k) {
     cout << "State does not exist" << endl;
 }
 
-//unsigned int Node::calculateManhattanCost(State curState, State goalState) {
 unsigned int Node::calculateManhattanCost(State goalState) {
     int manhattanCost = 0;
     Board b;
     vector<vector<int>> curStateCoord, goalStateCoord;
 
-//    curStateCoord = Board::getBoardCoordinatesByValue(curState);
     curStateCoord = Board::getBoardCoordinatesByValue(this->state);
     goalStateCoord = Board::getBoardCoordinatesByValue(goalState);
 
@@ -66,7 +64,6 @@ unsigned int Node::calculateHammingCost(State goalState) {
     return hamming;
 }
 
-//void Node::setHeuresticValue(unsigned int manhattan, unsigned int hamming) {
 void Node::setPathCostValue(State goalState) {
     unsigned int manhattan, hamming;
 
@@ -79,4 +76,29 @@ void Node::setPathCostValue(State goalState) {
 unsigned int Node::getPathCostValue() const {
     return this->pathCost;
 }
+
+void Node::setSibling(Node *sib) {
+
+}
+
+void Node::getSibling() {
+
+}
+
+void Node::setChild(Node *c) {
+
+}
+
+void Node::getChild() {
+
+}
+
+void Node::setLevel(unsigned int lvl) {
+
+}
+
+void Node::getLevel() {
+
+}
+
 
