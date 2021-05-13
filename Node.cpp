@@ -78,27 +78,27 @@ unsigned int Node::getPathCostValue() const {
 }
 
 void Node::setSibling(Node *sib) {
-
+    this->sibling = sib;
 }
 
-void Node::getSibling() {
-
+Node* Node::getSibling() const {
+    return this->sibling;
 }
 
 void Node::setChild(Node *c) {
-
+    this->child = c;
 }
 
-void Node::getChild() {
-
+Node* Node::getChild() const {
+    return this->child;
 }
 
 void Node::setLevel(unsigned int lvl) {
-
+    this->level = lvl;
 }
 
-void Node::getLevel() {
-
+unsigned int Node::getLevel() const {
+    return this->level;
 }
 
 

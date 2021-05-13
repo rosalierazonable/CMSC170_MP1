@@ -66,9 +66,9 @@ public:
         return this->state;
     }
     unsigned int getPathCostValue() const;
-    void getSibling();
-    void getChild();
-    void getLevel();
+    Node* getSibling() const;
+    Node* getChild() const;
+    unsigned int getLevel() const;
 
 };
 
