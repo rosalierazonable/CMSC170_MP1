@@ -24,37 +24,17 @@ int main() {
     State goalState(3, {0, 1, 2, 3, 4, 5, 6, 7, 8}); //default goal state
 
     State s;
-//    State s1(3, {0, 1, 2, 3, 4, 5, 6, 7, 8});
 
-//    s.displayStateConfig();
-//    s.createBoard();
-//    cout << s.locateEmptyTile() << endl;
-//    s.swapTiles(7).createBoard();
-//    cout << isGoalState(s, goalState) << endl;
-
-//    int x = 1 / 3;
-//    int y = 1 % 3;
-//    cout << "x: " << y << endl;
-
-//    Board b;
-//    vector<vector<int>> board;
-//    board = b.getBoardCoordinatesByValue(s);
-//    b.displayConfigCoordinates(s);
-//    b.displayCoordinates(s.locateEmptyTile());
-//    s.displayStateConfig();
-//    Neighbour n;
-//    n.displayNeighbours(s.locateEmptyTile());
     s.createBoard();
     cout << endl;
     Node *root = new Node(s);
     root->level = 0;
     root->child = new Node(s.swapTiles(1));
-    cout << "Hamming: " << root->calculateHammingCost(goalState) << endl;
-//    cout << "Manhattan: " << root->calculateManhattanCost(root->state, goalState) << endl;
+  /*  cout << "Hamming: " << root->calculateHammingCost(goalState) << endl;
     cout  << "Manhattan: " << root->calculateManhattanCost(goalState) << endl;
     root->setPathCostValue(goalState);
     cout << "PathCost: " << root->getPathCostValue() << endl;
-
+*/
     root->child->level = 1;
     Node::printKthChild(root, s, 1);
     root->child->sibling = new Node(s.swapTiles(3));
