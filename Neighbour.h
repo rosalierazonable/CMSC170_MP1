@@ -21,7 +21,7 @@ public:
       Neighbour::buildMap();
     }
 
-    void buildMap();
+    static void buildMap();
     static vector<int> getNeighbours(unsigned int idxEmpty);
     void displayNeighbours(unsigned int idx);
 
