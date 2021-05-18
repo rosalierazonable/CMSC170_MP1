@@ -70,6 +70,7 @@ void Node::setPathCostValue(State goalState) {
     manhattan = this->calculateManhattanCost(goalState);
     hamming = this->calculateHammingCost(goalState);
 
+    cout << "manhattan: " << manhattan << " hamming: " << hamming << " level: " << this->level << endl;
     this->pathCost = manhattan + hamming + this->level;
 }
 

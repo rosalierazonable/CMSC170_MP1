@@ -11,6 +11,8 @@
 #include "Board.h"
 #include "Neighbour.h"
 #include "Node.h"
+#include "Solver.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -22,20 +24,16 @@ map<unsigned int, vector<int>> Board::BoardIdxMap = {};
 
 int main() {
     State goalState(3, {0, 1, 2, 3, 4, 5, 6, 7, 8}); //default goal state
-
     State s;
 
-    s.createBoard();
-    cout << endl;
-
     Node *r = new Node(s);
-    r->setLevel(1);
-    r->setChild(new Node(s.swapTiles(1)));
-    r->getChild()->setLevel(1);
-    r->setPathCostValue(goalState);
-    cout << r->getPathCostValue();
-    Node::printKthChild(r, s, 1);
 
+//    Solver program(r);
+//    program.solvePuzzle(r, goalState);
+
+      Solver puzzle(r);
+//      puzzle.solve(r,goalState);
+        puzzle.solvePuzzle(r,goalState);
     return 0;
 }
 
@@ -46,9 +44,12 @@ bool isGoalState(State& s, State& goalState) {
 
 /* REFERENCES:
  *
+ * https://www.youtube.com/watch?v=D5aJNFWsWew&list=PLnrZOBR0x7yq6_p-DywsuH1R559NU2xLp&index=7 (Harvard CS50)
  * https://www.geeksforgeeks.org/left-child-right-sibling-representation-tree/
  * https://www.geeksforgeeks.org/generic-treesn-array-trees/
  * https://www.geeksforgeeks.org/largest-element-in-an-n-ary-tree/
  * https://www.geeksforgeeks.org/creating-tree-left-child-right-sibling-representation/ (to be checked)
  * https://bytes.com/topic/c/answers/491099-undefined-reference-error-map
+ * https://www.youtube.com/watch?v=oAye4hI_sis
+ * https://www.tutorialkart.com/cpp/cpp-vector-remove-first-element/
  */

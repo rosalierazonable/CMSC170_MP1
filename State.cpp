@@ -48,6 +48,7 @@ void State::createBoard() {
         }
         cout << " | " << endl;
     }
+    cout << endl;
 }
 
 unsigned int State::locateEmptyTile() {
