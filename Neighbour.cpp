@@ -20,13 +20,8 @@ vector<int> Neighbour::getNeighbours(unsigned int idxEmpty) {
     Map::const_iterator itr(neighbourMap.find(idxEmpty));
     if(itr!=neighbourMap.end()) {
         return itr->second;
+    } else {
+        return vector<int>();
     }
-    return vector<int>();
-}
-
-void Neighbour::displayNeighbours(unsigned int idx) {
-    for(int neighbour: this->getNeighbours(idx))
-        cout << neighbour << " ";
-    cout <<  endl;
 }
 

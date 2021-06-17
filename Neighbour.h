@@ -22,8 +22,7 @@ public:
     }
 
     static void buildMap();
-    static vector<int> getNeighbours(unsigned int idxEmpty);
-    void displayNeighbours(unsigned int idx);
+    vector<int> getNeighbours(unsigned int idxEmpty);
 
 };
 

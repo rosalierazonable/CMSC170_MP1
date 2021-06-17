@@ -4,6 +4,8 @@
 
 #include "Node.h"
 
+// Helper Functions
+
 void Node::printKthChild(Node *root, State &state1, unsigned int k) {
 
     if(root == nullptr)
@@ -52,7 +54,7 @@ unsigned int Node::calculateManhattanCost(State goalState) {
     return manhattanCost;
 }
 
-unsigned int Node::calculateHammingCost(State goalState) {
+/*unsigned int Node::calculateHammingCost(State goalState) {
     unsigned int hamming = 0;
     for(int i = 0; i < goalState.getState().size(); i++) {
 
@@ -62,43 +64,47 @@ unsigned int Node::calculateHammingCost(State goalState) {
             hamming++;
     }
     return hamming;
-}
+}*/
+
+
+// Mutator Functions
 
 void Node::setPathCostValue(State goalState) {
     unsigned int manhattan, hamming;
 
     manhattan = this->calculateManhattanCost(goalState);
-    hamming = this->calculateHammingCost(goalState);
+/*    hamming = this->calculateHammingCost(goalState);
+    this->pathCost = manhattan + hamming + this->level;*/
+    this->pathCost = manhattan + this->level;
+}
 
-    this->pathCost = manhattan + hamming + this->level;
+void Node::setSibling(Node *sib) {
+    this->sibling = sib;
+}
+
+void Node::setChild(Node *c) {
+    this->child = c;
+}
+
+void Node::setLevel(unsigned int lvl) {
+    this->level = lvl;
+}
+
+
+// Accessor Functions
+
+unsigned int Node::getLevel() const {
+    return this->level;
 }
 
 unsigned int Node::getPathCostValue() const {
     return this->pathCost;
 }
 
-void Node::setSibling(Node *sib) {
-
+Node* Node::getChild() const {
+    return this->child;
 }
 
-void Node::getSibling() {
-
+Node* Node::getSibling() const {
+    return this->sibling;
 }
-
-void Node::setChild(Node *c) {
-
-}
-
-void Node::getChild() {
-
-}
-
-void Node::setLevel(unsigned int lvl) {
-
-}
-
-void Node::getLevel() {
-
-}
-
-
