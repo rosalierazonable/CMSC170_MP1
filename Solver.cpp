@@ -105,7 +105,7 @@ void Solver::solve(Node *initialNode, State& goalState) {
 
                     cout << "==================================" << endl << endl;
                     cout << "The puzzle has been solved! " << endl;
-
+                    cout << "Total Number of Explored/Expanded Nodes: " << this->exploredList.size() << endl;
                     stop = true;
                 }
             }
