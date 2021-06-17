@@ -23,7 +23,6 @@ public:
 
     static void buildMap();
     vector<int> getNeighbours(unsigned int idxEmpty);
-    void displayNeighbours(unsigned int idx);
 
 };
 

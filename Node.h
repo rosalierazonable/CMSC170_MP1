@@ -52,8 +52,8 @@ public:
 
     // Helper Functions
     static void printKthChild(Node* root, State& state1, unsigned int k);
-    unsigned int calculateManhattanCost(State goalState);
-    unsigned int calculateHammingCost(State goalState);
+    unsigned int calculateManhattanCost(State goalState); // calculate manhattan cost by comparing the distances of the goal state and the current node
+//    unsigned int calculateHammingCost(State goalState);
 
     // Mutator Methods
     void setPathCostValue(State goalState);

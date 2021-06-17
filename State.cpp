@@ -8,18 +8,6 @@ vector<int> State::getState() {
     return this->state;
 }
 
-void State::displayStateConfig() {
-    int c = 0;
-    for (int s: this->getState()) {
-        cout << "[ " << s << " ] ";
-        c++;
-        if(c == 3) {
-            cout << endl;
-            c = 0;
-        }
-    }
-}
-
 void State::setState(const vector<int>& s8) {
     this->state = s8;
 }
@@ -81,5 +69,9 @@ bool State::isEqual(State &s8) {
     if(this->getState() == s8.getState())
         return true;
     return false;
+}
+
+int State::getDimension() const {
+    return (int) this->dimension;
 }
 

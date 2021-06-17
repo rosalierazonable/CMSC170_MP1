@@ -4,8 +4,6 @@
 
 #include "Board.h"
 
-//map<unsigned int, vector<int>> Board::BoardIdxMap = {};
-
 void Board::buildMap() {
     BoardIdxMap.insert(make_pair(0, vector<int>{0,0}));
     BoardIdxMap.insert(make_pair(1, vector<int>{0,1}));
@@ -52,47 +50,6 @@ map<unsigned int, vector<int>> Board::getBoardCoordinatesByStateConfig(State sta
         idxMap.insert(make_pair(state.getState().at(i) ,getBoardCoordinatesByIdx(i)));
     }
     return idxMap;
-}
-
-void Board::displayCoordinates(unsigned int idx) {
-
-    for(int i = 0; i < 2; i++) {
-
-        if(i == 0)
-            cout << "( ";
-
-        cout << this->getBoardCoordinatesByIdx(idx).at(i);
-
-        if(i != 1)
-            cout << ",";
-        else
-            cout << " )" << endl;
-    }
-}
-
-void Board::displayConfigCoordinates(State state) {
-    vector<vector<int>> idxMap;
-    idxMap = getBoardCoordinatesByValue(state);
-
-    int ctr, ctr1;
-    ctr = 1;
-    for(const auto& val: idxMap) {
-        ctr1 = 1;
-        cout << "( ";
-       for(auto value: val) {
-           cout << value;
-           if(ctr1 == 1)
-               cout << ",";
-           ctr1++;
-       }
-       cout << " ) | ";
-       if(ctr == 3) {
-           cout << endl;
-           ctr = 0;
-       }
-       ctr++;
-    }
-    cout << endl;
 }
 
 

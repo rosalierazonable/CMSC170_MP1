@@ -25,9 +25,3 @@ vector<int> Neighbour::getNeighbours(unsigned int idxEmpty) {
     }
 }
 
-void Neighbour::displayNeighbours(unsigned int idx) {
-    for(int neighbour: this->getNeighbours(idx))
-        cout << neighbour << " ";
-    cout <<  endl;
-}
-

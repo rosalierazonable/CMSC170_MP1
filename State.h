@@ -36,13 +36,13 @@ public:
 
     // Accessor Methods
     vector<int> getState();
+    int getDimension() const;
 
     // Mutator Methods
     void setDimension(unsigned int dmension);
     void setState(const vector<int>& s8);
 
     // Helper Methods
-    void displayStateConfig(); //display the state list configuration
     void createBoard(); //create a board and display it
     unsigned int locateEmptyTile(); //find the empty tile [0]
     State swapTiles(int idxToSwap); //swaps empty location to the index provided and returns a state
