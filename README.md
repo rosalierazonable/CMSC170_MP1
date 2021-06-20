@@ -8,7 +8,7 @@ Given a 3x3 | 8 Puzzle, use A* Algorithm to solve it.
 
 ## Heurestic Value
 
-The Heurestic value used in this problem is the total of the Manhattan Distance and Hamming value
+The Heurestic value used in this problem is the total of the Manhattan Distance 
 
 ## Data Structure/s
 
